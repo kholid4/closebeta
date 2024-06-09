@@ -1312,7 +1312,7 @@ p {
   }
   #linechartContainer {
     position: flex;
-    width: 120%;
+    width: 110%;
     height: 250px; /* Adjust height as needed */
   }
 
