@@ -735,3 +735,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayPage(currentPage, filteredData);
     }
 });
+
