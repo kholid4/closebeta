@@ -410,9 +410,7 @@ fetchdata4().then(data4 => {
 });
 
 // Menambahkan media queries untuk responsif pada layar mobile
-if (window.matchMedia("(max-width: 768px)").matches) {
-    myChart.options.responsive = true;
-}
+
 
 // code about making OurTeam
 
@@ -548,8 +546,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     let displayedData = [];
 
     try {
-        const response5 = await fetch('/Assets/Data/full_Data.json');
-        dataTable = await response5.json();
+        const response = await fetch('/Assets/Data/full_Data.json');
+        dataTable = await response.json();
         filteredData = [...dataTable];
         displayedData = [...dataTable];
     } catch (error) {
@@ -561,31 +559,38 @@ document.addEventListener('DOMContentLoaded', async () => {
         const start = (page - 1) * itemsPerPage;
         const end = page * itemsPerPage;
         const paginatedItems = dataToDisplay.slice(start, end);
-
+    
         paginatedItems.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${item.Location}</td>
-                <td>${item.Machine}</td>
-                <td>${item.Product}</td>
-                <td>${item.Category}</td>
-                <td>${item.TransDate}</td>
-                <td>${item.Type}</td>
-                <td>${item.Total_Sales}</td>
-                <td>${item.Revenue}</td>
+                <td class="responsive-cell">${item.Location}</td>
+                <td class="responsive-cell">${item.Machine}</td>
+                <td class="responsive-cell">${item.Product}</td>
+                <td class="responsive-cell">${item.Category}</td>
+                <td class="responsive-cell">${item.TransDate}</td>
+                <td class="responsive-cell">${item.Type}</td>
+                <td class="responsive-cell">${item.Total_Sales}</td>
+                <td class="responsive-cell">${item.Revenue}</td>
             `;
             tableBody.appendChild(row);
         });
-
+    
         prevButton.disabled = page === 1;
         nextButton.disabled = end >= dataToDisplay.length;
-
+    
         const totalPages = Math.ceil(dataToDisplay.length / itemsPerPage);
         const pageIndicator = document.getElementById('pageIndicator');
         pageIndicator.textContent = `Page ${page} of ${totalPages}`;
+    
+        // Add responsive class to table if screen width <= 425
+        if (window.innerWidth <= 425) {
+            tableBody.classList.add('responsive-table');
+        } else {
+            tableBody.classList.remove('responsive-table');
+        }
     };
 
-    const sortData = (order, field, dataToSort) => {
+        const sortData = (order, field, dataToSort) => {
         if (order === 'default') {
             dataToSort.sort((a, b) => {
                 if (field === 'TransDate' || field === 'Total_Sales') {
@@ -734,5 +739,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         sortData(transDateSortOrder, 'TransDate', filteredData);
         displayPage(currentPage, filteredData);
     }
+
+   // Add event listener for window resize
+// Add event listener for window resize to handle responsive table
+window.addEventListener('resize', () => {
+    displayPage(currentPage, displayedData);
 });
 
+});
