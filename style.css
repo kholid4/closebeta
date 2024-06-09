@@ -730,6 +730,17 @@ select {
   border-radius: 4px;
 }
 
+/* Add this CSS to your existing stylesheet or create a new one */
+.responsive-table {
+  overflow-x: auto;
+}
+
+.responsive-cell {
+  min-width: 100px; /* Or adjust according to your needs */
+  max-width: 200px; /* Or adjust according to your needs */
+}
+
+
 /* OUR TEAM */
 .services-ourteam {
   padding: 5%;
@@ -1312,7 +1323,7 @@ p {
   }
   #linechartContainer {
     position: flex;
-    width: 120%;
+    width: 110%;
     height: 250px; /* Adjust height as needed */
   }
 
