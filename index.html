@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>Vending Machine Dashboard</title>
+    <link rel="icon" type="image" href="/Assets/Images/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo-title">
+        <img
+          src="/Assets/Images/logo.png"
+          alt="Vending Machine Logo"
+          id="logo"
+        />
+        <h1><a href="index.html">Vending Machine</a></h1>
+        <span class="menu-toggle">&#9776;</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a class="dashboard-home" href="index.html">Home</a></li>
+          <li>
+            <a class="dashboard-visualisasi" href="#analytics">Analytics</a>
+          </li>
+          <li><a class="dashboard-settings" href="#ourteam">Our Team</a></li>
+          <li><a class="dashboard-contact" href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="vm-container">
+        <p class="vm-slogan"></p>
+      </div>
+
+      <section class="intro">
+        <div class="container-intro">
+          <article class="left-section">
+            <h2 class="intro-text-1">
+              #1 Vending Machine Brand In Central New Jersey
+            </h2>
+            <h1 class="intro-text-2">AEmas Vending Machine,</h1>
+            <p class="intro-text-3">
+              Spread throughout famous areas in Central New Jersey. Get your
+              vending machine now!
+            </p>
+          </article>
+          <article class="right-section">
+            <img src="/Assets/Images/group-logo.png" alt="logo-group" />
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard1" id="analytics">
+        <h1 class="heading-analytics">Analytics</h1>
+        <br>
+        <h2 class="analytics-title">Sales and Revenue Trends in 2022</h2>
+        <div id="dashboard-row-bar1">
+          <div class="dashboard-column-bar1 dashboard-content-bar1">
+            <p class="analytics-text">
+              The line chart illustrates the sales and revenue generated
+              throughout 2022. Notably, both metrics peaked in July and August,
+              indicating the highest performance of the year during these
+              months.
+            </p>
+            <p class="analytics-text">
+              *Based on the 2022 vending machine sales data in Central New
+              Jersey
+            </p>
+          </div>
+          <div class="dashboard-column dashboard-barlocation">
+            <div id="linechartContainer">
+              <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="dashboard-table">
+        <h1>Data Table</h1>
+        <br />
+        <div class="filter-search-container">
+          <button id="filterButton">Filter</button>
+          <input type="text" id="searchInput" placeholder="Search...">
+      </div>
+        <div id="dashboard-row">
+            <div class="dashboard-column">
+                <table id="Data-table">
+                    <thead>
+                        <tr>
+                            <th>Location</th>
+                            <th>Machine</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th id="transDateHeader">
+                                Transaction Date
+                                <span class="sort-icon"></span>
+                            </th>
+                            <th>Type</th>
+                            <th id="totalSalesHeader">Total Sales
+                                <span class="sort-icon"></span>
+                            </th>
+                            <th id="revenueHeader">
+                                Revenue
+                                <span class="sort-icon"></span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div id="pageIndicator">Page 1 of 1</div>
+                <div class="dashboard-pagination">
+                    <button id="firstButton">First</button>
+                    <button id="prevButton">Previous</button>
+                    <button id="nextButton">Next</button>
+                    <button id="lastButton">Last</button>
+                </div>
+            </div>
+        </div>
+        <div id="filterPopup" class="filter-popup">
+          <span id="closeFilterPopup" class="close-filter">&times;</span>
+          <div class="filter-content">
+              <label for="categoryFilter">Category:</label>
+              <select id="categoryFilter">
+                  <!-- Options will be populated here -->
+              </select>
+              <label for="locationFilter">Location:</label>
+              <select id="locationFilter">
+                  <!-- Options will be populated here -->
+              </select>
+              <label for="machineFilter">Machine:</label>
+              <select id="machineFilter">
+                  <!-- Options will be populated here -->
+              </select>
+              <button id="applyFilterButton">Apply Filters</button>
+          </div>
+      </div>
+    </section>
+    
+
+      <section class="dashboard2">
+        <h2 class="analytics-title">Highest Location profitability</h2>
+        <div id="dashboard-row-bar2">
+          <div class="dashboard-column-bar1 dashboard-content-bar1">
+            <p class="analytics-text">
+              The highest Sales and Revenue are obtained from vending machine
+              locations in:
+            </p>
+            <div class="location">
+              <span class="location-title">1. Gutten Plans</span>
+            </div>
+            <div class="location">
+              <span class="location-title">2. EB Public Library</span>
+            </div>
+            <div class="location">
+              <span class="location-title">3. Brunswick Sq Mall</span>
+            </div>
+            <div class="location">
+              <span class="location-title">4. Earle Asphalt</span>
+            </div>
+            <p class="analytics-text">
+              *Based on the 2022 vending machine sales data in Central New
+              Jersey
+            </p>
+          </div>
+          <div class="dashboard-column dashboard-barlocation">
+            <div id="chart1Container">
+              <canvas id="barchart3"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard3">
+        <h2 class="analytics-title">Highest Category Profitability</h2>
+        <div id="dashboard-row-bar3">
+          <div class="dashboard-column-bar1 dashboard-content-bar1">
+            <p class="analytics-text">
+              The highest Sales and Revenue are obtained from the categories of:
+            </p>
+            <div class="location">
+              <span class="location-title">1. Food</span>
+            </div>
+            <div class="location">
+              <span class="location-title">2. Carbonated</span>
+            </div>
+            <div class="location">
+              <span class="location-title">3. Non Carbonated</span>
+            </div>
+            <div class="location">
+              <span class="location-title">4. Water</span>
+            </div>
+            <p class="analytics-text">
+              *Based on the 2022 vending machine sales data in Central New
+              Jersey
+            </p>
+          </div>
+          <div class="dashboard-column dashboard-barlocation">
+            <div id="chart2Container">
+              <canvas id="chart2"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard4">
+        <h2 class="analytics-title">Highest Machine Profitability</h2>
+        <div id="dashboard-row-bar4">
+          <div class="dashboard-column-bar1 dashboard-content-bar1">
+            <p class="analytics-text">
+              The following machine units generate the highest Sales and
+              Revenue:
+            </p>
+            <div class="location">
+              <span class="location-title">1. GuttenPlans x1367</span>
+            </div>
+            <div class="location">
+              <span class="location-title">2. EB Public Library x1380</span>
+            </div>
+            <div class="location">
+              <span class="location-title">3. Earle Asphalt x1371</span>
+            </div>
+            <div class="location">
+              <span class="location-title">4. BSQ Mall x1364 - Zales</span>
+            </div>
+            <div class="location">
+              <span class="location-title">5. BSQ Mall x1366 - AT</span>
+            </div>
+            <p class="analytics-text">
+              *Based on the 2022 vending machine sales data in Central New
+              Jersey
+            </p>
+          </div>
+          <div class="dashboard-column dashboard-barlocation">
+            <div id="chart3Container">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-ourteam" id="ourteam">
+        <div class="container-ourteam">
+          <h3 class="heading">Our Team</h3>
+          <div class="box">
+            <div class="col-4 main-member" data-team="1">
+              <div class="image">
+                <img src="/Assets/Images/haikal.png" alt="Main Member" />
+              </div>
+              <h4>Haikal Muhammad Akbar</h4>
+            </div>
+            <div class="col-4" data-team="2">
+              <div class="image">
+                <img src="/Assets/Images/cindi.png" alt="Member" />
+              </div>
+              <h4>Cindi Karolin</h4>
+            </div>
+            <div class="col-4" data-team="3">
+              <div class="image">
+                <img src="/Assets/Images/kholid.png" alt="Member" />
+              </div>
+              <h4>Kholid Fauzy</h4>
+            </div>
+            <div class="col-4" data-team="4">
+              <div class="image">
+                <img src="/Assets/Images/Rini.png" alt="Member" />
+              </div>
+              <h4>Rini Kurniasih</h4>
+            </div>
+            <div class="col-4" data-team="5">
+              <div class="image">
+                <img src="/Assets/Images/Hikmah.png" alt="Member" />
+              </div>
+              <h4>Hikma Abdia</h4>
+            </div>
+            <div class="col-4" data-team="6">
+              <div class="image">
+                <img src="/Assets/Images/irgy.png" alt="Member" />
+              </div>
+              <h4>Irgy Dwi V</h4>
+            </div>
+            <div class="col-4" data-team="7">
+              <div class="image">
+                <img src="/Assets/Images/shanta.png" alt="Member" />
+              </div>
+              <h4>Made Shanta Raima W</h4>
+            </div>
+            <div class="col-4" data-team="8">
+              <div class="image">
+                <img src="/Assets/Images/izzah.png" alt="Member" />
+              </div>
+              <h4>Mufidatul Izza</h4>
+            </div>
+            <div class="col-4" data-team="9">
+              <div class="image">
+                <img src="/Assets/Images/kevin.png" alt="Member" />
+              </div>
+              <h4>Kevin Kurnia</h4>
+            </div>
+            <div class="col-4" data-team="10">
+              <div class="image">
+                <img src="/Assets/Images/nova.png" alt="Member" />
+              </div>
+              <h4>Nova Enjelina P</h4>
+            </div>
+            <div class="col-4" data-team="11">
+              <div class="image">
+                <img src="/Assets/Images/amelia.png" alt="Member" />
+              </div>
+              <h4>Amelia Putri Rosalina</h4>
+            </div>
+            <div class="col-4" data-team="12">
+              <div class="image">
+                <img src="/Assets/Images/eolia.png" alt="Member" />
+              </div>
+              <h4>Eolia Gita Arifyani</h4>
+            </div>
+            <div class="col-4" data-team="13">
+              <div class="image">
+                <img src="/Assets/Images/ainur.png" alt="Member" />
+              </div>
+              <h4>Ainur Rokhimah</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div id="info-box">
+        <p id="info-text-1"></p>
+        <p id="info-text-2"></p>
+        <p id="info-text-3"></p>
+        <p id="info-text-4"></p>
+        <div id="close-btn">Tutup</div>
+      </div>
+
+      <section class="contact-section" id="contact">
+        <div class="column-text">
+          <p class="text-aemas">
+            AEmas is a top-performing vending machine in Central New Jersey.
+            Since its launch in 2022, AEmas has become the go-to choice for
+            everyone, setting trends across the region. With a presence in
+            multiple locations and an extensive range of products, AEmas
+            continues to achieve excellent sales performance. Join us now and
+            own the most lucrative vending machine franchise in CNJ!
+          </p>
+        </div>
+        <div class="column-feedback">
+          <form
+            action="/index.html"
+            method="POST"
+            onsubmit="return validateForm();"
+          >
+            <div>
+              <label>Name</label>
+              <input
+                type="text"
+                name="Name"
+                id="Name"
+                maxlength="12"
+                placeholder="Nama"
+              />
+            </div>
+            <div>
+              <label>Email</label>
+              <input
+                type="Email"
+                name="Email"
+                id="Email"
+                placeholder="example@gmail.com"
+              />
+            </div>
+            <div>
+              <label>Message</label>
+              <textarea
+                cols="40"
+                rows="5"
+                name="Message"
+                id="Message"
+                placeholder="Isikan pesan yang ingin anda sampaikan"
+              ></textarea>
+            </div>
+            <div>
+              <button type="submit" value="Daftar" class="tombol">Kirim</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>&copy; 2024 Team 2 Balikpapan - RevoU</p>
+      </footer>
+
+      <div id="successModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <img
+            src="/Assets/Images/success.gif"
+            alt="Success"
+            class="success-icon"
+          />
+          <p style="color: black">
+            Pesan anda berhasil terkirim! Terima kasih atas pesan Anda.
+          </p>
+        </div>
+      </div>
+
+      <div id="errorModalall" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeErrorModal1()">&times;</span>
+          <img src="Assets/Images/failed.gif" alt="Error" class="error-icon" />
+          <p style="color: black">Jangan Lupa Semua bidang harus diisi!</p>
+        </div>
+      </div>
+
+      <div id="errorModalemail" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeErrorModal2()">&times;</span>
+          <img src="Assets/Images/email.gif" alt="Error" class="error-icon" />
+          <p style="color: black">Email yang anda masukkan tidak valid!</p>
+        </div>
+      </div>
+
+      <div id="errorModalname" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeErrorModal4()">&times;</span>
+          <img src="Assets/Images/fail.gif" alt="Error" class="error-icon" />
+          <p style="color: black">
+            Nama harus memiliki panjang minimal 5 karakter!
+          </p>
+        </div>
+      </div>
+
+      <div id="confirmModal" class="modal">
+        <div class="modal-content">
+          <img
+            src="Assets/Images/checklist.gif"
+            alt="Error"
+            class="error-icon"
+          />
+          <p style="color: black">
+            Apakah data yang Anda masukkan sudah benar?
+          </p>
+          <button onclick="submitForm()">Iya</button>
+          <button onclick="closeConfirmModal()">Tidak</button>
+        </div>
+      </div>
+
+      <script src="script.js"></script>
+    </main>
+  </body>
+</html>
